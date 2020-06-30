@@ -5,7 +5,7 @@ Sử dụng **airodump-ng** để tìm kiếm các wifi có mã hóa WEP
 ```s 
  $ airodump-ng wlan0mon
 ```
-![alt](images/airodump-ng.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/airodump-ng.png)
 Các thông tin về wifi:
 - BSSID: **C0:4A:00:71:34:9c** (là địa chỉ MAC của AP).
 - Channel: **11** (kênh giao tiếp của AP).
@@ -27,7 +27,7 @@ Thực hiện chuyển channel của wlan0mon thành **11** (giống với chann
 - wlan0mon là wireless interface.
 
 Kết quả nhận được khi thực hiện lệnh trên
-![alt](images/injection_test.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/injection_test.png)
 => Kết quả trả về thành công (**30/30: 100%**)
 
 ### Bước 3: Sử dụng airodump-ng để bắt các IV (Initial Vector)
@@ -40,7 +40,7 @@ Kết quả nhận được khi thực hiện lệnh trên
 - -w CaptureIV là file chứa những IV bắt được.
 - wlan0mon là wireless interface.
 
-![alt](images/CaptureIV.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/CaptureIV.png)
 
 ### Bước 4: Sử dụng aireplay-ng để tạo xác thực giả với AP
 Nếu không có các kết nối nào khác vào AP thì sẽ không tạo mới các IV. Nên ta sẽ tạo ra các xác thực giả đến AP nhằm tạo ra các IV và bắt nó.
@@ -54,23 +54,23 @@ Nếu không có các kết nối nào khác vào AP thì sẽ không tạo mớ
 - -h **00:0c:29:b8:bf:f1** là địa chỉ MAC của máy chúng ta.
 - **wlan0mon** là wireless interface.
 
-![alt](images/fakeauth.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/fakeauth.png)
 => Gửi xác thực giả thành công.
 
 ### Bước 5: Sử dụng aireplay-ng tăng tín hiệu ARP để tạo ra nhiều IV
 ```sh
  $ aireplay-ng -3 -b C0:4A:00:71:34:9C -h 00:0c:29:b8:bf:f1 wlan0mon
 ```
-![alt](images/ARP.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/ARP.png)
 
 ### Bước 6: Chờ để thu thập đủ IV cho việc crack
-![alt](images/IVCrack.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/IVCrack.png)
 
 ### Bước 7: Sử dụng aircrack-ng để tìm password của AP
 ```sh
  $ aircrack-ng -b C0:4A:00:71:34:9C CaptureIV-01.cap
 ```
-![alt](images/solve.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/solve.png)
 - Thời gian để tìm ra password là **0s**
 - Password: **1234567890**
 
@@ -81,11 +81,11 @@ Sử dụng Kismet để kiểm tra các Wifi xung quanh
  $ kismet -c wlan0mon
 ```
 Sử dụng giao diện người dùng của Kismet
-![alt](images/KismetUI.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/KismetUI.png)
 
 Nhấp vào tên wifi để xem thông tin của wifi đó (trong bài thực hành này là InSecLab)
-![alt](images/wifiinfo.png)
-![alt](images/wifiinfo1.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/wifiinfo.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/wifiinfo1.png)
 - Thông tin bao gồm tên Wifi
 - Địa chỉ MAC của AP
 - Channel của AP
@@ -94,7 +94,7 @@ Nhấp vào tên wifi để xem thông tin của wifi đó (trong bài thực h�
 Sau khi thu thập được địa chỉ **MAC**, **ESSID**, **CHANNEL** của AP ta sẽ tiến hành crack nó theo các bước đã trình bày ở trên.
 
 Tiến hành thu thập **IVs**
-![alt](images/CaptureIV1.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/CaptureIV1.png)
 
 Tiến hành crack Wifi
 ```sh
@@ -102,5 +102,5 @@ Tiến hành crack Wifi
 ```
 
 Kết quả
-![alt](images/solve1.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/solve1.png)
 => Pass wifi: ***TAN@123tantan***
