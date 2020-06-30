@@ -6,6 +6,7 @@ Sử dụng **airodump-ng** để tìm kiếm các wifi có mã hóa WEP
  $ airodump-ng wlan0mon
 ```
 ![Thu thập thông tin wifi lân cận](images/airodump-ng.png)
+
 Các thông tin về wifi:
 - BSSID: **C0:4A:00:71:34:9c** (là địa chỉ MAC của AP).
 - Channel: **11** (kênh giao tiếp của AP).
@@ -28,6 +29,7 @@ Thực hiện chuyển channel của wlan0mon thành **11** (giống với chann
 
 Kết quả nhận được khi thực hiện lệnh trên
 ![alt](images/injection_test.png)
+
 => Kết quả trả về thành công (**30/30: 100%**)
 
 ### Bước 3: Sử dụng airodump-ng để bắt các IV (Initial Vector)
@@ -55,6 +57,7 @@ Nếu không có các kết nối nào khác vào AP thì sẽ không tạo mớ
 - **wlan0mon** là wireless interface.
 
 ![alt](images/fakeauth.png)
+
 => Gửi xác thực giả thành công.
 
 ### Bước 5: Sử dụng aireplay-ng tăng tín hiệu ARP để tạo ra nhiều IV
@@ -71,6 +74,7 @@ Nếu không có các kết nối nào khác vào AP thì sẽ không tạo mớ
  $ aircrack-ng -b C0:4A:00:71:34:9C CaptureIV-01.cap
 ```
 ![alt](images/solve.png)
+
 - Thời gian để tìm ra password là **0s**
 - Password: **1234567890**
 
@@ -86,6 +90,7 @@ Sử dụng giao diện người dùng của Kismet
 Nhấp vào tên wifi để xem thông tin của wifi đó (trong bài thực hành này là InSecLab)
 ![alt](images/kismet/wifiinfo.png)
 ![alt](images/kismet/wifiinfo1.png)
+
 - Thông tin bao gồm tên Wifi
 - Địa chỉ MAC của AP
 - Channel của AP
@@ -103,6 +108,7 @@ Tiến hành crack Wifi
 
 Kết quả
 ![alt](images/kismet/res.png)
+
 => Pass wifi: ***1234567890***
 
 ## 3. Sử dụng CommView để Crack WEP
@@ -125,6 +131,7 @@ Tiến hành bắt gói tin
 
 Chúng ta sẽ bắt đủ gói tin để thu thập đủ số IV cần thiết để crack WEP. Trong CommView, sau khi thu thập đủ số gói tin ta sẽ xem nó dưới dạng log
 ![CommViewLog](images/Commview/log.png)
+
 - Tiến hành Export file log thành file pcapng
 
 Sau đó chúng ta sẽ sử dụng lệnh sau để chuyển đổi file **pcapng** thành file **pcap**
@@ -139,4 +146,5 @@ Vì CommView bắt các gói tin dựa trên 1 channel cụ thể (do mình ch�
 
 Kết quả sau khi chạy lệnh trên
 ![CommViewRes](images/Commview/res.png)
+
 => Mật khẩu: ***chudt***
