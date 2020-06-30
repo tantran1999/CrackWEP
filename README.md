@@ -5,7 +5,7 @@ Sử dụng **airodump-ng** để tìm kiếm các wifi có mã hóa WEP
 ```s 
  $ airodump-ng wlan0mon
 ```
-![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/airodump-ng.png)
+![alt](https://github.com/tantran1999/CrackWEP/blob/master/images/airodump-ng.png?raw=true)
 Các thông tin về wifi:
 - BSSID: **C0:4A:00:71:34:9c** (là địa chỉ MAC của AP).
 - Channel: **11** (kênh giao tiếp của AP).
