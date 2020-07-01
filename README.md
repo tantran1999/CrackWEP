@@ -1,7 +1,9 @@
 # Báo cáo đồ án môn học
 ## 1. Môi trường thực hành
 Cấu hình phần cứng: Laptop Dell Intel(R) Core i7-4510U 2.00GHz 8GB RAM
+
 Card Wifi: TENDA-W311U+
+
 Máy ảo: Kali Linux 2020
 ## 2. Sử dụng Aircrack-ng + Airodump-ng + Aireplay-ng để bẻ khóa các mật mã đơn giản
 ### Bước 1: Tìm đối tượng để thực hiện tấn công.
