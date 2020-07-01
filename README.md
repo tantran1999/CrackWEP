@@ -34,6 +34,7 @@ Thực hiện chuyển channel của wlan0mon thành **11** (giống với chann
 - wlan0mon là wireless interface.
 
 Kết quả nhận được khi thực hiện lệnh trên
+
 ![alt](images/injection_test.png)
 
 => Kết quả trả về thành công (**30/30: 100%**)
@@ -91,9 +92,11 @@ Sử dụng Kismet để kiểm tra các Wifi xung quanh
  $ kismet -c wlan0mon
 ```
 Sử dụng giao diện người dùng của Kismet
+
 ![alt](images/kismet/KismetUI.png)
 
 Nhấp vào tên wifi để xem thông tin của wifi đó (trong bài thực hành này là InSecLab)
+
 ![alt](images/kismet/wifiinfo.png)
 ![alt](images/kismet/wifiinfo1.png)
 
@@ -105,6 +108,7 @@ Nhấp vào tên wifi để xem thông tin của wifi đó (trong bài thực h�
 Sau khi thu thập được địa chỉ **MAC**, **ESSID**, **CHANNEL** của AP ta sẽ tiến hành crack nó theo các bước đã trình bày ở trên.
 
 Tiến hành thu thập **IVs**
+
 ![alt](images/kismet/kismetIVs.png)
 
 Tiến hành crack Wifi
@@ -113,29 +117,36 @@ Tiến hành crack Wifi
 ```
 
 Kết quả
+
 ![alt](images/kismet/res.png)
 
 => Pass wifi: ***1234567890***
 
 ## 4. Sử dụng CommView để Crack WEP
 Sử dụng CommView để kiểm tra các mạng wifi xung quanh
+
 ![CommViewScan](images/Commview/scan.png)
 
 Xem thông tin của mạng wifi InSecLab
+
 ![CommViewInfo](images/Commview/info.png)
 
 Cấu hình để CommView bắt các gói tin của AP InSecLab và lưu vào file log
 
 Cấu hình Channel để CommView bắt gói tin
+
 ![CommViewConfig](images/Commview/config1.png)
 
 Cấu hình nơi lưu trữ file log
+
 ![CommViewConfig](images/Commview/config2.png)
 
 Tiến hành bắt gói tin
+
 ![CommViewCapture](images/Commview/capturepacket.png)
 
 Chúng ta sẽ bắt đủ gói tin để thu thập đủ số IV cần thiết để crack WEP. Trong CommView, sau khi thu thập đủ số gói tin ta sẽ xem nó dưới dạng log
+
 ![CommViewLog](images/Commview/log.png)
 
 - Tiến hành Export file log thành file pcapng
@@ -151,6 +162,7 @@ Thực hiện crack sử dụng **aircrack-ng**
 Vì CommView bắt các gói tin dựa trên 1 channel cụ thể (do mình chỉ định hoặc có thể bắt các gói tin trên mọi channel) nên trong gói tin **pcap** không chỉ hiển thị AP mà ta muốn Crack mà còn rất nhiều AP khác chạy cùng channel với channel của AP muốn Crack. Nên chúng ta phải chọn tên của AP muốn Crack để **aircrack-ng** thực hiện nhiệm vụ.
 
 Kết quả sau khi chạy lệnh trên
+
 ![CommViewRes](images/Commview/res.png)
 
 => Mật khẩu: ***chudt***
