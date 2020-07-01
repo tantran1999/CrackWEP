@@ -1,5 +1,9 @@
 # Báo cáo đồ án môn học
-## 1. Sử dụng Aircrack-ng + Airodump-ng + Aireplay-ng để bẻ khóa các mật mã đơn giản
+## 1. Môi trường thực hành
+Cấu hình phần cứng: Laptop Dell Intel(R) Core i7-4510U 2.00GHz 8GB RAM
+Card Wifi: TENDA-W311U+
+Máy ảo: Kali Linux 2020
+## 2. Sử dụng Aircrack-ng + Airodump-ng + Aireplay-ng để bẻ khóa các mật mã đơn giản
 ### Bước 1: Tìm đối tượng để thực hiện tấn công.
 Sử dụng **airodump-ng** để tìm kiếm các wifi có mã hóa WEP
 ```sh 
@@ -78,7 +82,7 @@ Nếu không có các kết nối nào khác vào AP thì sẽ không tạo mớ
 - Thời gian để tìm ra password là **0s**
 - Password: **1234567890**
 
-## 2. Sử dụng Kismet để Crack WEP
+## 3. Sử dụng Kismet để Crack WEP
 
 Sử dụng Kismet để kiểm tra các Wifi xung quanh
 ```sh
@@ -111,7 +115,7 @@ Kết quả
 
 => Pass wifi: ***1234567890***
 
-## 3. Sử dụng CommView để Crack WEP
+## 4. Sử dụng CommView để Crack WEP
 Sử dụng CommView để kiểm tra các mạng wifi xung quanh
 ![CommViewScan](images/Commview/scan.png)
 
